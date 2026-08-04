@@ -1,0 +1,320 @@
+@use "../styles/theme" as *;
+
+.section {
+  padding: 40px 22px 140px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 34px;
+
+  @include respond(lg) {
+    grid-template-columns: 7fr 5fr;
+    align-items: start;
+  }
+}
+
+// ---------- pipeline ----------
+
+.pipeline {
+  position: relative;
+}
+
+.nodes {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.node {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+}
+
+.rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .marker {
+    position: relative;
+    @include flex-center;
+    width: 26px;
+    height: 26px;
+    margin-top: 6px;
+
+    .markerCore {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px var(--glow-accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .markerRing {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      animation: pulse-ring 2.4s ease-out infinite;
+    }
+  }
+
+  .railLine {
+    flex: 1;
+    width: 2px;
+    margin: 6px 0;
+    border-radius: 2px;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--line-strong) 0 6px,
+      transparent 6px 12px
+    );
+    background-size: 2px 12px;
+    animation: railflow 1.6s linear infinite;
+  }
+}
+
+.card {
+  @include panel;
+  padding: 24px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateX(6px);
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.cardTop {
+  @include flex-center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .nodeTag {
+    @include mono;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 3px 8px;
+  }
+
+  .period {
+    @include mono;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .hint {
+    @include mono;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+
+.role {
+  margin-top: 16px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.company {
+  @include flex-center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.94rem;
+  color: var(--accent-2);
+  font-weight: 500;
+
+  .sep {
+    color: var(--muted);
+  }
+}
+
+.points {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-2);
+  }
+
+  .pointArrow {
+    @include mono;
+    color: var(--accent);
+    flex: none;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+
+  .tag {
+    @include tech-chip;
+    @include mono;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    border-radius: 7px;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.22s ease;
+
+    &:hover {
+      @include tech-glow;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ---------- side ----------
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+}
+
+.eduCard,
+.statsCard {
+  @include panel;
+  padding: 24px;
+}
+
+.eduList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eduItem {
+  .eduHead {
+    @include flex-center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .eduStatus {
+      @include mono;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      color: var(--ok);
+      border: 1px solid color-mix(in srgb, var(--ok) 45%, transparent);
+      border-radius: 999px;
+      padding: 3px 9px;
+    }
+
+    .eduPeriod {
+      @include mono;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+  }
+
+  .eduDegree {
+    margin-top: 12px;
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .eduSchool {
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: var(--accent-2);
+  }
+
+  .progressTrack {
+    margin-top: 12px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--line);
+    overflow: hidden;
+  }
+
+  .progressFill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 12px var(--glow-accent);
+  }
+}
+
+.metrics {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.metric {
+  .metricRow {
+    @include flex-center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .metricKey {
+      @include mono;
+      font-size: 0.8rem;
+      color: var(--text-2);
+    }
+
+    .metricValue {
+      @include mono;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+  }
+
+  .metricLabel {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+}
+
+.valueOk {
+  color: var(--ok);
+}
+.valueAccent {
+  color: var(--accent);
+}
+.valueAccent2 {
+  color: var(--accent-2);
+}
+
+@keyframes railflow {
+  to {
+    background-position: 0 12px;
+  }
+}

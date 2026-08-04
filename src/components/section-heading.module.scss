@@ -1,0 +1,50 @@
+@use "../styles/theme" as *;
+
+.heading {
+  margin-bottom: 44px;
+}
+
+.row {
+  @include flex-center;
+  gap: 14px;
+}
+
+.index {
+  @include mono;
+  font-size: 0.78rem;
+  color: var(--accent);
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.code {
+  @include mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+  opacity: 0.6;
+}
+
+.trace {
+  @include mono;
+  font-size: 0.72rem;
+  color: var(--accent);
+  animation: blink 1.6s steps(1) infinite;
+}
+
+.title {
+  margin-top: 18px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text);
+}

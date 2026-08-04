@@ -1,0 +1,77 @@
+// ============================================================
+//  THEME — shared SCSS partial (mixins + tokens only)
+//  This file must never emit top-level CSS so it can be
+//  `@use`d by every *.module.scss without duplication.
+// ============================================================
+
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+@mixin respond($bp) {
+  @if $bp == sm {
+    @media (min-width: $bp-sm) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (min-width: $bp-md) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (min-width: $bp-lg) {
+      @content;
+    }
+  } @else if $bp == xl {
+    @media (min-width: $bp-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+}
+
+@mixin sans {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Frosted glass panel used across bento cards.
+@mixin panel {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+// Mono corner label like `// 02_nodes`
+@mixin corner-label {
+  @include mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+// Tech node colouring — relies on --t-hue set per-node.
+@mixin tech-chip {
+  border: 1px solid hsl(var(--t-hue) 85% var(--t-light) / 0.42);
+  color: hsl(var(--t-hue) 85% var(--t-light));
+  background: hsl(var(--t-hue) 85% var(--t-light) / 0.08);
+}
+
+@mixin tech-glow($strength: 0.55) {
+  box-shadow: 0 0 0 1px hsl(var(--t-hue) 85% var(--t-light) / 0.45),
+    0 0 22px -4px hsl(var(--t-hue) 90% var(--t-light) / $strength);
+}

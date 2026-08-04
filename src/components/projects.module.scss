@@ -1,0 +1,200 @@
+@use "../styles/theme" as *;
+
+.section {
+  padding: 40px 22px 120px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+
+  @include respond(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+  }
+}
+
+.card {
+  @include panel;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.cardRel {
+  border-color: var(--accent);
+  box-shadow: 0 0 34px -8px var(--glow-accent);
+  animation: floaty 3.4s ease-in-out infinite;
+}
+
+.cardDim {
+  opacity: 0.35;
+  filter: saturate(0.3);
+}
+
+.chrome {
+  @include flex-center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+
+  .dots {
+    display: flex;
+    gap: 6px;
+
+    i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line-strong);
+      opacity: 0.8;
+
+      &:nth-child(1) {
+        background: var(--bad);
+        opacity: 0.9;
+      }
+      &:nth-child(2) {
+        background: var(--warn);
+        opacity: 0.9;
+      }
+      &:nth-child(3) {
+        background: var(--ok);
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .cmd {
+    @include mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-left: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.body {
+  padding: 24px 24px 10px;
+  flex: 1;
+}
+
+.head {
+  @include flex-center;
+  gap: 12px;
+
+  .name {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .badge {
+    @include mono;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 9px;
+    border-radius: 999px;
+    box-shadow: 0 0 14px -2px var(--glow-accent);
+    animation: blink 2.4s steps(1) infinite;
+  }
+}
+
+.desc {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-2);
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+
+  .techChip {
+    @include tech-chip;
+    @include mono;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 7px;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.22s ease,
+      opacity 0.22s ease;
+
+    &:hover {
+      @include tech-glow;
+      transform: translateY(-2px);
+    }
+  }
+
+  .techChipActive {
+    @include tech-glow;
+    transform: translateY(-2px);
+  }
+}
+
+.terminal {
+  @include mono;
+  position: relative;
+  margin: 18px 24px 24px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--term-bg);
+  border: 1px solid var(--line);
+  font-size: 0.76rem;
+  line-height: 1.75;
+  min-height: 120px;
+}
+
+.termLine {
+  display: flex;
+  gap: 10px;
+  white-space: pre-wrap;
+
+  .termPrompt {
+    color: var(--accent);
+    flex: none;
+  }
+}
+
+.cmd {
+  color: var(--text);
+}
+.out {
+  color: var(--text-2);
+}
+.dim {
+  color: var(--muted);
+}
+.ok {
+  color: var(--ok);
+}
+.warn {
+  color: var(--warn);
+}
+
+.cursor {
+  color: var(--accent);
+  display: inline-block;
+}

@@ -1,0 +1,142 @@
+@use "../styles/theme" as *;
+
+.section {
+  padding: 120px 22px;
+  position: relative;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+
+  @include respond(sm) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.card {
+  @include panel;
+  overflow: hidden;
+  padding: 26px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-4px);
+  }
+
+  @include respond(sm) {
+    &:nth-child(odd) {
+      grid-column: span 5;
+    }
+    &:nth-child(even) {
+      grid-column: span 7;
+    }
+  }
+}
+
+.cardHead {
+  @include flex-center;
+  justify-content: space-between;
+  gap: 10px;
+
+  .code {
+    @include mono;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+  }
+
+  .hint {
+    @include mono;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+}
+
+.cardTitle {
+  margin-top: 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.node {
+  @include tech-chip;
+  @include flex-center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease,
+    border-color 0.25s ease;
+  will-change: transform;
+
+  .nodeDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: hsl(var(--t-hue) 90% var(--t-light));
+    box-shadow: 0 0 8px hsl(var(--t-hue) 90% var(--t-light) / 0.8);
+    flex: none;
+  }
+
+  &:hover {
+    @include tech-glow;
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+.nodeActive {
+  @include tech-glow;
+  transform: translateY(-3px) scale(1.06);
+  border-style: dashed;
+  animation: floaty 2.6s ease-in-out infinite;
+}
+
+.nodeDim {
+  opacity: 0.28;
+  filter: saturate(0.2);
+}
+
+.scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--glow-accent),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .scan {
+  opacity: 0.16;
+  animation: scanline 3.2s linear infinite;
+}

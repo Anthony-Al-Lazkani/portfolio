@@ -1,0 +1,92 @@
+@use "../styles/theme" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  @include flex-center;
+  flex-direction: column;
+  gap: 18px;
+  cursor: pointer;
+}
+
+.term {
+  width: min(520px, calc(100vw - 40px));
+  @include panel;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--term-bg);
+  box-shadow: var(--shadow-lg);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--line-strong);
+    opacity: 0.7;
+  }
+
+  .title {
+    @include mono;
+    margin-left: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+}
+
+.body {
+  @include mono;
+  padding: 16px;
+  min-height: 148px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+  white-space: pre-wrap;
+
+  .prompt {
+    color: var(--accent);
+    flex: none;
+  }
+}
+
+.cmd {
+  color: var(--text);
+}
+.out {
+  color: var(--text-2);
+}
+.dim {
+  color: var(--muted);
+}
+.ok {
+  color: var(--ok);
+}
+
+.cursor {
+  color: var(--accent);
+  display: inline-block;
+}
+
+.hint {
+  @include mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: blink 1.6s steps(1) infinite;
+}
