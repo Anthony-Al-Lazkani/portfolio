@@ -9,9 +9,9 @@ export default function Footer() {
       <div className={`${styles.inner} container`}>
         <div className={styles.status}>
           <span className={styles.prompt}>$</span>
-          <span>system_idle</span>
+          <span>whoami</span>
           <span className={styles.dot} />
-          <span className={styles.muted}>all systems nominal</span>
+          <span className={styles.muted}>open to new opportunities</span>
         </div>
 
         <div className={styles.meta}>
@@ -25,8 +25,8 @@ export default function Footer() {
             </a>
           </div>
           <p className={styles.copy}>
-            © {year} {profile.name} · engineered with next.js · framer-motion ·
-            sass
+            © {year} {profile.name} · built with Next.js · TypeScript · SCSS ·
+            Framer-Motion · Tabler-Icons
           </p>
         </div>
       </div>
