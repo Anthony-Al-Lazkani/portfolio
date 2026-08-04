@@ -66,7 +66,7 @@ function EducationNode({
       <h3 className={styles.degree}>{entry.degree}</h3>
       <p className={styles.location}>{entry.location}</p>
 
-      <div className={styles.status}>
+      <div className={`${styles.status} ${running ? styles.statusRunning : ""}`}>
         {running ? (
           <>
             <span className={styles.statusPing} aria-hidden />

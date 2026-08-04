@@ -103,8 +103,10 @@
   }
 
   &:hover {
-    @include tech-glow;
     transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 0 1px hsl(var(--t-hue) 85% var(--t-light) / 0.45),
+      0 0 22px -4px hsl(var(--t-hue) 90% var(--t-light) / 0.55),
+      0 0 20px -8px var(--glow-2);
   }
 }
 
