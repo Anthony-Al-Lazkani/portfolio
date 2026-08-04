@@ -40,7 +40,7 @@
   inset: 0;
   border-radius: 2px;
   background: var(--line-strong);
-  box-shadow: 0 0 14px -2px var(--glow-accent);
+  box-shadow: 0 0 14px -2px var(--glow-2);
   transform-origin: 50% 50%;
 }
 
@@ -52,7 +52,7 @@
   background: linear-gradient(
     180deg,
     transparent,
-    var(--accent) 45%,
+    var(--accent-2) 45%,
     transparent
   );
   filter: blur(1px);
@@ -66,7 +66,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      var(--accent) 45%,
+      var(--accent-2) 45%,
       transparent
     );
     animation: flow-x 2s linear infinite;
@@ -78,8 +78,8 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 14px var(--glow-accent), 0 0 4px var(--accent);
+  background: var(--accent-2);
+  box-shadow: 0 0 14px var(--glow-2), 0 0 4px var(--accent-2);
   left: 50%;
   top: 100%;
   transform: translate(-50%, -50%);
@@ -128,15 +128,15 @@
 }
 
 .nodeActive {
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-  box-shadow: 0 0 34px -10px var(--glow-accent);
+  border-color: color-mix(in srgb, var(--accent-2) 45%, transparent);
+  box-shadow: 0 0 34px -10px var(--glow-2);
 
   &::before {
     content: "";
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--accent-2);
     animation: node-pulse 2.4s ease-out infinite;
     pointer-events: none;
   }
@@ -225,6 +225,16 @@
   }
 }
 
+.statusRunning {
+  border-color: color-mix(in srgb, var(--accent-2) 45%, transparent);
+  color: var(--accent-2);
+
+  .statusPing {
+    background: var(--accent-2);
+    box-shadow: 0 0 10px var(--glow-2);
+  }
+}
+
 .progressTrack {
   margin-top: 18px;
   height: 6px;
@@ -238,5 +248,5 @@
   height: 100%;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 12px var(--glow-accent);
+  box-shadow: 0 0 12px var(--glow-2);
 }

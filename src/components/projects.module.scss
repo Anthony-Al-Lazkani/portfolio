@@ -28,8 +28,8 @@
 
   &:hover {
     transform: translateY(-8px);
-    border-color: var(--line-strong);
-    box-shadow: var(--shadow-lg);
+    border-color: color-mix(in srgb, var(--accent-2) 55%, var(--line-strong));
+    box-shadow: var(--shadow-lg), 0 0 30px -12px var(--glow-2);
   }
 }
 
