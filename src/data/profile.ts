@@ -90,16 +90,15 @@ export const projects: Project[] = [
     name: "Financial Advisory Bot",
     cmd: "experts — signal fusion",
     description:
-      "Mixture-of-Experts LLM architecture. Intelligent signal fusion (news, market, alphas, fundamentals) for decision support, with performance evaluation driven by trading strategies.",
-    tech: ["Python", "LLM Architecture", "FastAPI", "Pandas", "Scikit-Learn"],
+      "Predicts a stock's price from an interest + budget prompt (e.g. \"AAPL, $2000\"). Four specialist LLMs forecast in parallel: alpha, news, market, fundamentals. A fifth fuses them into a buy/sell call, and a portfolio manager handles the exact rebalance.",
+    tech: ["Python", "FastAPI", "Pandas", "Scikit-Learn", "Supabase"],
     lines: [
-      { prompt: "$", text: "./experts run --fusion", tone: "cmd" },
-      { prompt: "›", text: "loading experts ████████░░ 4/6", tone: "dim" },
-      { prompt: "›", text: "[news]        bullish   (+0.72)", tone: "out" },
-      { prompt: "›", text: "[market]      neutral   (+0.08)", tone: "out" },
-      { prompt: "›", text: "[alphas]      bullish   (+0.41)", tone: "out" },
-      { prompt: "→", text: "fused signal: LONG · conf 0.62", tone: "ok" },
-      { prompt: "✓", text: "strategy backtest · Sharpe 1.84", tone: "ok" },
+      { prompt: "$", text: "./experts run --ticker AAPL --budget 2000", tone: "cmd" },
+      { prompt: "›", text: "fetching 4 streams in parallel ........ done", tone: "dim" },
+      { prompt: "›", text: "[news]        prediction: bullish  (+0.72)", tone: "out" },
+      { prompt: "›", text: "[alphas]      prediction: bullish  (+0.41)", tone: "out" },
+      { prompt: "→", text: "decision llm: BUY · conf 0.68", tone: "ok" },
+      { prompt: "✓", text: "portfolio mgr: sell 12 AAPL · alloc $1,420", tone: "ok" },
     ],
   },
   {
@@ -108,7 +107,7 @@ export const projects: Project[] = [
     cmd: "friendshare — trip.split",
     description:
       "Full-stack expense-sharing app with trip management, custom split algorithms, and multilingual translation integration.",
-    tech: ["Next.js", "FastAPI", "TypeScript", "MongoDB", "REST API"],
+    tech: ["Next.js", "FastAPI", "TypeScript", "PostgreSQL", "REST API"],
     lines: [
       { prompt: "$", text: "friend split --algorithm fair", tone: "cmd" },
       { prompt: "›", text: 'trip "Bali · Aug" · €1,284.50', tone: "out" },
@@ -164,7 +163,9 @@ export type Education = {
   id: string;
   degree: string;
   school: string;
+  location: string;
   period: string;
+  timeline: string;
   status: "IN PROGRESS" | "COMPLETED";
   progress: number;
 };
@@ -172,9 +173,11 @@ export type Education = {
 export const education: Education[] = [
   {
     id: "cs",
-    degree: "Advanced Master in Engineering of Open Intelligent Systems",
-    school: "Centrale Supélec",
+    degree: "Specialized Masters in Engineering of Open Intelligent Systems",
+    school: "CentraleSupélec",
+    location: "Gif-sur-Yvette, France",
     period: "Sep 2025 — Sep 2026",
+    timeline: "2025 - 2026",
     status: "IN PROGRESS",
     progress: 18,
   },
@@ -182,7 +185,9 @@ export const education: Education[] = [
     id: "sju",
     degree: "Engineering Degree in Computer and Communications Engineering",
     school: "Saint Joseph University",
+    location: "Beirut, Lebanon",
     period: "Sep 2020 — Jul 2025",
+    timeline: "2020 - 2025",
     status: "COMPLETED",
     progress: 100,
   },
@@ -201,7 +206,7 @@ export const metrics: Metric[] = [
   { key: "voice_accuracy", value: 85.85, decimals: 2, suffix: "%", label: "NLP classifier accuracy", tone: "ok" },
   { key: "inference_latency", value: 0.88, decimals: 2, suffix: "s", label: "parallelized voice pipeline", tone: "accent" },
   { key: "npm_packages", value: 1, decimals: 0, suffix: "", label: "globally published CLI", tone: "accent2" },
-  { key: "expert_gates", value: 4, decimals: 0, suffix: "", label: "MoE signal sources fused", tone: "ok" },
+  { key: "expert_llms", value: 5, decimals: 0, suffix: "", label: "specialist LLMs in the pipeline", tone: "ok" },
 ];
 
 export const bootLines = [

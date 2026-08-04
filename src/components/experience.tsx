@@ -4,12 +4,7 @@ import type { CSSProperties } from "react";
 import { useEffect, useRef } from "react";
 import { animate, motion, useInView } from "framer-motion";
 import SectionHeading from "./section-heading";
-import {
-  education,
-  experiences,
-  metrics,
-  type Metric,
-} from "@/data/profile";
+import { experiences, metrics, type Metric } from "@/data/profile";
 import { hueFor } from "@/lib/tech";
 import { useFocus } from "./focus-provider";
 import styles from "./experience.module.scss";
@@ -109,8 +104,8 @@ export default function Experience() {
     <section id="experience" className={`${styles.section} container`}>
       <SectionHeading
         index="03"
-        code="system_pipeline"
-        title="System Pipeline"
+        code="experience"
+        title="Experience"
       />
 
       <div className={styles.layout}>
@@ -129,45 +124,11 @@ export default function Experience() {
 
         <aside className={styles.side}>
           <motion.div
-            className={styles.eduCard}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className={styles.cardTop}>
-              <span className={styles.nodeTag}>EDU</span>
-              <span className={styles.hint}>training data</span>
-            </div>
-            <div className={styles.eduList}>
-              {education.map((ed) => (
-                <div key={ed.id} className={styles.eduItem}>
-                  <div className={styles.eduHead}>
-                    <span className={styles.eduStatus}>{ed.status}</span>
-                    <span className={styles.eduPeriod}>{ed.period}</span>
-                  </div>
-                  <h4 className={styles.eduDegree}>{ed.degree}</h4>
-                  <p className={styles.eduSchool}>{ed.school}</p>
-                  <div className={styles.progressTrack}>
-                    <motion.span
-                      className={styles.progressFill}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${ed.progress}%` }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
             className={styles.statsCard}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className={styles.cardTop}>
               <span className={styles.nodeTag}>METRICS</span>

@@ -90,7 +90,7 @@
 }
 
 .body {
-  padding: 24px 24px 10px;
+  padding: 24px;
   flex: 1;
 }
 
@@ -152,49 +152,4 @@
     @include tech-glow;
     transform: translateY(-2px);
   }
-}
-
-.terminal {
-  @include mono;
-  position: relative;
-  margin: 18px 24px 24px;
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  background: var(--term-bg);
-  border: 1px solid var(--line);
-  font-size: 0.76rem;
-  line-height: 1.75;
-  min-height: 120px;
-}
-
-.termLine {
-  display: flex;
-  gap: 10px;
-  white-space: pre-wrap;
-
-  .termPrompt {
-    color: var(--accent);
-    flex: none;
-  }
-}
-
-.cmd {
-  color: var(--text);
-}
-.out {
-  color: var(--text-2);
-}
-.dim {
-  color: var(--muted);
-}
-.ok {
-  color: var(--ok);
-}
-.warn {
-  color: var(--warn);
-}
-
-.cursor {
-  color: var(--accent);
-  display: inline-block;
 }
