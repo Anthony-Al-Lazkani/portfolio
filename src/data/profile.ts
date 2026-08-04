@@ -9,8 +9,8 @@ export const profile = {
   linkedin: "https://linkedin.com/in/anthony-lazkani",
   linkedinLabel: "linkedin.com/in/anthony-lazkani",
   statement:
-    "I explore how complex systems operate at the micro level — every function, node and request treated as part of a living machine.",
-  bio: "Software engineer building voice pipelines that answer in 0.88s, terminal-native AI agents shipped to npm, and full-stack systems where the details actually hold together.",
+    "I am fascinated by how complex systems operate at the micro level.",
+  bio: "Software engineer driven by curiosity and ambitious ideas, exploring how far software can go to solve real problems. Always learning, building, and diving deeper into AI, open source, and the craft of software.",
 };
 
 export type SkillCategory = {

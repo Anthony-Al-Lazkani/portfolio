@@ -104,3 +104,21 @@
     opacity: 0.85;
   }
 }
+
+.socials {
+  @include flex-center;
+  gap: 14px;
+}
+
+.social {
+  @include flex-center;
+  color: var(--muted);
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease;
+
+  &:hover {
+    color: var(--accent);
+    filter: drop-shadow(0 0 6px var(--glow-accent));
+  }
+}
