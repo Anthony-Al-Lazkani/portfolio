@@ -1,8 +1,9 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useCallback, useState } from "react";
 import { motion, type Variants } from "framer-motion";
+import { IconMapPin } from "@tabler/icons-react";
 import MicroCanvas from "./micro-canvas";
 import { profile } from "@/data/profile";
 import styles from "./hero.module.scss";
@@ -29,9 +30,17 @@ const contacts = [
   { label: profile.linkedinLabel, href: profile.linkedin, icon: "◎" },
 ];
 
-const badges = [
+const badges: { k: string; v: string; icon?: ReactNode }[] = [
   { k: "status", v: "online" },
-  { k: "location", v: profile.location },
+  {
+    k: "location",
+    v: profile.location,
+    icon: (
+      <span className={styles.badgeKeyIcon} aria-hidden>
+        <IconMapPin size={14} />
+      </span>
+    ),
+  },
   { k: "focus", v: "software / AI" },
 ];
 
@@ -91,7 +100,7 @@ export default function Hero() {
         <motion.div variants={item} className={styles.badges}>
           {badges.map((b) => (
             <span key={b.k} className={styles.badge}>
-              <span className={styles.badgeKey}>{b.k}</span>
+              <span className={styles.badgeKey}>{b.icon ?? b.k}</span>
               <span className={styles.badgeVal}>
                 <span className={styles.dot} />
                 {b.v}

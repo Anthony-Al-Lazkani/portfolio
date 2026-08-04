@@ -46,9 +46,9 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "tools",
     code: "MOD_04",
-    label: "Tools",
+    label: "Technologies",
     hint: "infrastructure",
-    items: ["Linux", "Git", "Docker", "MongoDB", "REST API", "SQLite", "Prisma"],
+    items: ["Linux", "Git", "Docker", "MongoDB", "REST API", "SQLite", "Prisma", "Salesforce"],
   },
 ];
 

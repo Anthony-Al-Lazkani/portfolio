@@ -146,6 +146,11 @@
       color: var(--accent);
     }
 
+    .badgeKeyIcon {
+      display: inline-flex;
+      align-items: center;
+    }
+
     .badgeVal {
       display: inline-flex;
       align-items: center;
