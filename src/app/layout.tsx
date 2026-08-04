@@ -17,7 +17,7 @@ const fira = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Anthony Lazkani — Software Engineer · Micro-Systems",
+  title: "Anthony Lazkani — Software Engineer",
   description:
     "Portfolio of Anthony Lazkani — Software Engineer exploring how complex systems operate at the micro level. Voice pipelines, AI agents, and full-stack systems.",
 };
