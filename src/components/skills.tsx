@@ -15,8 +15,8 @@ export default function Skills() {
     <section id="skills" className={`${styles.section} container`}>
       <SectionHeading
         index="01"
-        code="module_registry"
-        title="The Module Registry"
+        code="skills"
+        title="Skills"
         trace={focused ?? "scanning"}
       />
 
