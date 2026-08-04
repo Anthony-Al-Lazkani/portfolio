@@ -201,72 +201,9 @@
   top: calc(var(--nav-h) + 24px);
 }
 
-.eduCard,
 .statsCard {
   @include panel;
   padding: 24px;
-}
-
-.eduList {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.eduItem {
-  .eduHead {
-    @include flex-center;
-    justify-content: space-between;
-    gap: 10px;
-
-    .eduStatus {
-      @include mono;
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      color: var(--ok);
-      border: 1px solid color-mix(in srgb, var(--ok) 45%, transparent);
-      border-radius: 999px;
-      padding: 3px 9px;
-    }
-
-    .eduPeriod {
-      @include mono;
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-  }
-
-  .eduDegree {
-    margin-top: 12px;
-    font-size: 1.02rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .eduSchool {
-    margin-top: 4px;
-    font-size: 0.88rem;
-    color: var(--accent-2);
-  }
-
-  .progressTrack {
-    margin-top: 12px;
-    height: 6px;
-    border-radius: 999px;
-    background: var(--line);
-    overflow: hidden;
-  }
-
-  .progressFill {
-    display: block;
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    box-shadow: 0 0 12px var(--glow-accent);
-  }
 }
 
 .metrics {

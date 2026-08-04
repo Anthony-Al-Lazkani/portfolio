@@ -1,0 +1,242 @@
+@use "../styles/theme" as *;
+
+.section {
+  padding: 40px 22px 140px;
+}
+
+// ---------- trace grid ----------
+
+.trace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr 200px 1fr;
+    gap: 34px;
+  }
+}
+
+// ---------- connector ----------
+
+.connector {
+  position: relative;
+  width: 2px;
+  height: 150px;
+  margin: 0 auto;
+
+  @include respond(lg) {
+    width: 100%;
+    height: 2px;
+    margin: 0;
+  }
+}
+
+.flowLine {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--line-strong);
+  box-shadow: 0 0 14px -2px var(--glow-accent);
+  transform-origin: 50% 50%;
+}
+
+.flowGlow {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accent) 45%,
+    transparent
+  );
+  filter: blur(1px);
+  opacity: 0.8;
+  animation: flow-y 2s linear infinite;
+
+  @include respond(lg) {
+    top: 0;
+    height: 100%;
+    width: 140px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent) 45%,
+      transparent
+    );
+    animation: flow-x 2s linear infinite;
+  }
+}
+
+.flowDot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--glow-accent), 0 0 4px var(--accent);
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  @include respond(lg) {
+    top: 50%;
+    left: 100%;
+  }
+}
+
+@keyframes flow-x {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -140px;
+  }
+}
+
+@keyframes flow-y {
+  from {
+    top: 100%;
+  }
+  to {
+    top: -140px;
+  }
+}
+
+// ---------- node ----------
+
+.node {
+  @include panel;
+  position: relative;
+  padding: 26px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.nodeActive {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 0 34px -10px var(--glow-accent);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid var(--accent);
+    animation: node-pulse 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes node-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+}
+
+.nodeTop {
+  @include flex-center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .nodeTag {
+    @include sans;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .nodeTime {
+    @include mono;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+}
+
+.degree {
+  margin-top: 14px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.location {
+  @include mono;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--accent-2);
+}
+
+.status {
+  @include mono;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 20px;
+  padding: 6px 12px;
+  border: 1px solid color-mix(in srgb, var(--ok) 45%, transparent);
+  border-radius: 999px;
+  color: var(--ok);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  .statusPing {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ok);
+    animation: ping-dot 2s ease-out infinite;
+  }
+
+  .statusCheck {
+    @include flex-center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--ok);
+    color: #fff;
+    font-size: 0.6rem;
+    line-height: 1;
+  }
+}
+
+.progressTrack {
+  margin-top: 18px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px var(--glow-accent);
+}
