@@ -32,7 +32,7 @@ const contacts = [
 const badges = [
   { k: "status", v: "online" },
   { k: "location", v: profile.location },
-  { k: "focus", v: "micro-systems" },
+  { k: "focus", v: "software / AI" },
 ];
 
 export default function Hero() {
@@ -66,7 +66,7 @@ export default function Hero() {
       >
         <motion.p variants={item} className={styles.prompt}>
           <span className={styles.promptSign}>$</span>
-          whoami --context=micro-system
+          whoami --context=software-ai
         </motion.p>
 
         <motion.h1 variants={item} className={styles.name}>
@@ -77,12 +77,10 @@ export default function Hero() {
           <span className={styles.roleTag}>[</span>
           <span className={styles.roleText}>software engineer</span>
           <span className={styles.roleTag}>]</span>
-          <span className={styles.roleLine} />
-          <span className={styles.roleMono}>{profile.title}</span>
         </motion.div>
 
         <motion.p variants={item} className={styles.statement}>
-          I explore how complex systems operate at the{" "}
+          I am fascinated by how complex systems operate at the{" "}
           <span className={styles.statementAccent}>micro level</span>.
         </motion.p>
 

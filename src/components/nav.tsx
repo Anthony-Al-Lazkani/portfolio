@@ -1,14 +1,15 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-react";
 import ThemeToggle from "./theme-toggle";
 import { profile } from "@/data/profile";
 import styles from "./nav.module.scss";
 
 const links = [
   { href: "#skills", label: "skills" },
-  { href: "#projects", label: "projects" },
   { href: "#experience", label: "experience" },
+  { href: "#projects", label: "projects" },
 ];
 
 export default function Nav() {
@@ -45,6 +46,34 @@ export default function Nav() {
         </ul>
 
         <ThemeToggle />
+
+        <div className={styles.socials}>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className={styles.social}
+          >
+            <IconBrandLinkedin size={18} />
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label="Email"
+            className={styles.social}
+          >
+            <IconMail size={18} />
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className={styles.social}
+          >
+            <IconBrandGithub size={18} />
+          </a>
+        </div>
       </nav>
     </header>
   );
