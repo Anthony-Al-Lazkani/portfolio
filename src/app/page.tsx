@@ -13,8 +13,8 @@ export default function Home() {
       <BootScreen />
       <main>
         <Hero />
-        <Skills />
         <Experience />
+        <Skills />
         <Projects />
         <Education />
       </main>

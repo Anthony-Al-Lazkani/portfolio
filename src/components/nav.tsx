@@ -7,8 +7,8 @@ import { profile } from "@/data/profile";
 import styles from "./nav.module.scss";
 
 const links = [
-  { href: "#skills", label: "skills" },
   { href: "#experience", label: "experience" },
+  { href: "#skills", label: "skills" },
   { href: "#projects", label: "projects" },
   { href: "#education", label: "education" },
 ];
@@ -30,8 +30,7 @@ export default function Nav() {
       />
       <nav className={styles.nav}>
         <a href="#top" className={styles.brand}>
-          <span className={styles.brandPrompt}>~</span>
-          <span className={styles.brandName}>{profile.handle}</span>
+          <span className={styles.brandName}>ME</span>
           <span className={styles.brandCursor}>▊</span>
         </a>
 
