@@ -110,7 +110,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div variants={item} className={styles.ctas}>
-          <a href="#skills" className={`${styles.btn} ${styles.btnPrimary}`}>
+          <a href="#experience" className={`${styles.btn} ${styles.btnPrimary}`}>
             <span className={styles.btnArrow}>▶</span>
             view_system
           </a>

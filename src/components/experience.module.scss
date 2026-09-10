@@ -4,17 +4,6 @@
   padding: 40px 22px 140px;
 }
 
-.layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 34px;
-
-  @include respond(lg) {
-    grid-template-columns: 7fr 5fr;
-    align-items: start;
-  }
-}
-
 // ---------- pipeline ----------
 
 .pipeline {
@@ -116,14 +105,6 @@
     font-size: 0.72rem;
     color: var(--muted);
   }
-
-  .hint {
-    @include mono;
-    font-size: 0.64rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
 }
 
 .role {
@@ -189,65 +170,6 @@
       transform: translateY(-2px);
     }
   }
-}
-
-// ---------- side ----------
-
-.side {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  position: sticky;
-  top: calc(var(--nav-h) + 24px);
-}
-
-.statsCard {
-  @include panel;
-  padding: 24px;
-}
-
-.metrics {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.metric {
-  .metricRow {
-    @include flex-center;
-    justify-content: space-between;
-    gap: 10px;
-
-    .metricKey {
-      @include mono;
-      font-size: 0.8rem;
-      color: var(--text-2);
-    }
-
-    .metricValue {
-      @include mono;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-  }
-
-  .metricLabel {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-}
-
-.valueOk {
-  color: var(--ok);
-}
-.valueAccent {
-  color: var(--accent);
-}
-.valueAccent2 {
-  color: var(--accent-2);
 }
 
 @keyframes railflow {

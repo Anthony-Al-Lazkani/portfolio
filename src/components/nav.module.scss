@@ -44,12 +44,9 @@
   color: var(--text);
   letter-spacing: -0.01em;
 
-  .brandPrompt {
-    color: var(--accent);
-  }
-
   .brandName {
     font-weight: 600;
+    color: var(--accent);
   }
 
   .brandCursor {

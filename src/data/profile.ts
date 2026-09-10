@@ -27,7 +27,7 @@ export const skillCategories: SkillCategory[] = [
     code: "MOD_01",
     label: "Languages",
     hint: "core runtimes",
-    items: ["Python", "C++", "Java", "Kotlin", "SQL", "JavaScript", "TypeScript"],
+    items: ["Python", "C++", "Java", "Kotlin", "SQL", "Apex", "JavaScript", "TypeScript"],
   },
   {
     id: "frameworks",
@@ -41,7 +41,7 @@ export const skillCategories: SkillCategory[] = [
     code: "MOD_03",
     label: "AI / Data",
     hint: "intelligence layer",
-    items: ["Pandas", "Scikit-Learn", "Vercel AI SDK", "SpeechBrain", "LLM Architecture"],
+    items: ["Pandas", "Scikit-Learn"],
   },
   {
     id: "tools",
@@ -69,22 +69,6 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "mailsh",
-    name: "Mailsh",
-    status: "NEW",
-    cmd: "mailsh — npm @armjunior/mailsh",
-    description:
-      "A globally published NPM CLI tool. Acts as a terminal-based AI assistant that triages inboxes, drafts emails via LLM, and manages contacts directly from the command line using local database resolution.",
-    tech: ["TypeScript", "Vercel AI SDK", "Prisma", "SQLite", "Gmail API"],
-    lines: [
-      { prompt: "$", text: "npx @armjunior/mailsh --inbox", tone: "cmd" },
-      { prompt: "›", text: "resolving local index ......... done", tone: "dim" },
-      { prompt: "›", text: "14 threads · 3 urgent · 2 from AI-ops", tone: "out" },
-      { prompt: ">", text: 'draft 1: "Re: CI pipeline hotfix" — [y/n]', tone: "out" },
-      { prompt: "✓", text: "reply drafted · contact updated in sqlite", tone: "ok" },
-    ],
-  },
   {
     id: "finance",
     name: "Financial Advisory Bot",
@@ -131,29 +115,50 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    id: "usj",
+    id: "zeplug",
     node: "NODE_01",
+    role: "Software & Data Platform Engineer",
+    company: "Zeplug & ChargeGuru",
+    period: "Jul 2026 — Present",
+    location: "Paris",
+    points: [
+      "Developed full-stack features for a multi-tenant installer portal (React/TypeScript SPA and Express proxy over Salesforce).",
+      "Engineered Salesforce Apex batch jobs, REST endpoints, validation rules and permission sets backing the portal's data layer.",
+      "Automated purchase- and delivery-order cost control with consolidated Apex batches, Account roll-up fields and margin logic.",
+      "Led the migration of a 182 GB production PostgreSQL database from Heroku to Amazon RDS Aurora across AWS regions.",
+      "Designed a snapshot-based cutover with pgcopydb after ruling out CDC and logical replication blocked by Heroku.",
+      "Built a migration risk-assessment framework with dependency mapping, timed rehearsals and data-integrity verification.",
+    ],
+    tags: ["React", "TypeScript", "Salesforce", "Apex", "PostgreSQL", "AWS"],
+  },
+  {
+    id: "usj",
+    node: "NODE_02",
     role: "Software Engineering Intern",
     company: "Saint Joseph University",
     period: "Jan 2025 — Jul 2025",
     location: "Beirut",
     points: [
-      "Developed Android backend (FastAPI) for home automation with Voice Auth.",
-      "Integrated AI voice recognition (SpeechBrain) and an NLP model (Scikit-learn, 85.85% accuracy).",
-      "Parallelized processing layers, cutting inference latency to 0.88s.",
+      "Developed an Android backend system using FastAPI for home automation with Voice Authentication.",
+      "Integrated AI voice recognition and speech-to-text conversion using SpeechBrain.",
+      "Created an NLP model with Scikit-learn, achieving 85.85% prediction accuracy.",
+      "Parallelized voice recognition, speech-to-text, and NLP layers, reducing latency to 0.88s.",
+      "Implemented role-based access control for multiple users (Admin, Family, User, Guest).",
+      "Monitored sensors in real-time for fire, gas, earthquake, and door opening alerts.",
     ],
     tags: ["FastAPI", "Python", "SpeechBrain", "Scikit-Learn"],
   },
   {
     id: "dsh",
-    node: "NODE_02",
+    node: "NODE_03",
     role: "Information Technology Intern",
     company: "Dar Al-Handasah",
     period: "May 2024 — Jul 2024",
     location: "Beirut",
     points: [
-      "Configured MicroTik routers, VLANs, and ESXi Windows Server VMs.",
-      "Developed a frontend social network with React.js and real-time updates.",
+      "Configured MicroTik routers, VLANs, and DHCP for network segmentation and connectivity.",
+      "Configured VMware ESXi with Windows Server VMs and optimized network resources.",
+      "Developed the frontend of a social network-style website using React.js, integrating secure authentication, real-time updates, and friend management.",
     ],
     tags: ["Linux", "React.js", "JavaScript", "REST API"],
   },
@@ -191,22 +196,6 @@ export const education: Education[] = [
     status: "COMPLETED",
     progress: 100,
   },
-];
-
-export type Metric = {
-  key: string;
-  value: number;
-  decimals: number;
-  suffix: string;
-  label: string;
-  tone: string;
-};
-
-export const metrics: Metric[] = [
-  { key: "voice_accuracy", value: 85.85, decimals: 2, suffix: "%", label: "NLP classifier accuracy", tone: "ok" },
-  { key: "inference_latency", value: 0.88, decimals: 2, suffix: "s", label: "parallelized voice pipeline", tone: "accent" },
-  { key: "npm_packages", value: 1, decimals: 0, suffix: "", label: "globally published CLI", tone: "accent2" },
-  { key: "expert_llms", value: 5, decimals: 0, suffix: "", label: "specialist LLMs in the pipeline", tone: "ok" },
 ];
 
 export const bootLines = [

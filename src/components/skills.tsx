@@ -14,7 +14,7 @@ export default function Skills() {
   return (
     <section id="skills" className={`${styles.section} container`}>
       <SectionHeading
-        index="01"
+        index="02"
         code="skills"
         title="Skills"
         trace={focused ?? "scanning"}
