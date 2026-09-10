@@ -146,7 +146,7 @@ export const experiences: Experience[] = [
       "Implemented role-based access control for multiple users (Admin, Family, User, Guest).",
       "Monitored sensors in real-time for fire, gas, earthquake, and door opening alerts.",
     ],
-    tags: ["FastAPI", "Python", "SpeechBrain", "Scikit-Learn"],
+    tags: ["FastAPI", "Python", "SpeechBrain", "Scikit-Learn", "Arduino", "Raspberry Pi"],
   },
   {
     id: "dsh",
@@ -160,7 +160,7 @@ export const experiences: Experience[] = [
       "Configured VMware ESXi with Windows Server VMs and optimized network resources.",
       "Developed the frontend of a social network-style website using React.js, integrating secure authentication, real-time updates, and friend management.",
     ],
-    tags: ["Linux", "React.js", "JavaScript", "REST API"],
+    tags: ["Linux", "React.js", "JavaScript", "REST API", "ESXi", "MongoDB"],
   },
 ];
 
